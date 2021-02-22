@@ -9,6 +9,8 @@ end
 
 route("/jsonpayload", method = POST) do
   @show jsonpayload()
-  out = runexpr(jsonpayload()["code"])
+  code = jsonpayload()["code"]
+  # out = runexpr(code)
+  out = eval(Meta.parse(code))
   json(out)
 end
