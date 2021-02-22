@@ -14,3 +14,11 @@ route("/jsonpayload", method = POST) do
   out = eval(Meta.parse(code))
   json(out)
 end
+
+### ideas
+# function parse_eval_dict(s::AbstractString, locals::Dict{Symbol})
+#     ex = Meta.parse(s)
+#     assignments = [:($sym = $val) for (sym,val) in locals]
+#     eval(:(let $(assignments...); $ex; end))
+# end
+###
